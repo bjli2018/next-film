@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @MapperScan(basePackages = {"com.enjoy.dao.mapper"})
 public class MybatisPlusConfig {
 
-    @Bean
+    @Bean(destroyMethod = "close",initMethod = "init")
     public DruidDataSource dataSource(DruidProperties druidProperties) {
         DruidDataSource dataSource = new DruidDataSource();
         druidProperties.config(dataSource);
