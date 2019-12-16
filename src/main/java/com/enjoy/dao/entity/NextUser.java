@@ -11,6 +11,8 @@ import java.io.Serializable;
  * @author bob
  * @since 2019-11-03
  */
+
+
 public class NextUser extends Model<NextUser> {
 
     private static final long serialVersionUID = 1L;

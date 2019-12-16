@@ -8,4 +8,7 @@
         <result column="user_name" property="userName" />
         <result column="user_pwd" property="userPwd" />
     </resultMap>
+    <select id="getUsers" resultMap="BaseResultMap">
+        SELECT * FROM NEXT_USER
+    </select>
 </mapper>
