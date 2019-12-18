@@ -1,6 +1,7 @@
 package com.enjoy.service.user;
 
 import com.enjoy.controller.user.EnrollUserVO;
+import com.enjoy.controller.user.UserInfoVO;
 import com.enjoy.service.common.exception.CommonServiceException;
 
 public interface UserService {
@@ -28,5 +29,19 @@ public interface UserService {
      */
     boolean userAuth(String userName,String userPwd) throws CommonServiceException;
 
+    /**
+     * 获取用户信息
+     * @param userId
+     * @return
+     * @throws CommonServiceException
+     */
+    UserInfoVO describeUserInfo(String userId) throws CommonServiceException;
 
+    /**
+     * 修改用户信息
+     * @param userInfoVO
+     * @return
+     * @throws CommonServiceException
+     */
+    UserInfoVO updateUserInfo(UserInfoVO userInfoVO) throws CommonServiceException;
 }

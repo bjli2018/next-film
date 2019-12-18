@@ -10,7 +10,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author bob
- * @since 2019-12-17
+ * @since 2019-12-18
  */
 public class NextUserT extends Model<NextUserT> {
 
