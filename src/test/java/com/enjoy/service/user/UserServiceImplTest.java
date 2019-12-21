@@ -48,6 +48,13 @@ public class UserServiceImplTest {
     }
 
     @Test
-    public void updateUserInfo() {
+    public void updateUserInfo() throws CommonServiceException {
+        UserInfoVO userInfoVO = new UserInfoVO(){{
+            setUuid(4);
+            setUsername("next");
+            setNickname("好消息");
+            setLifeState("1");
+        }};
+        System.out.println(userService.updateUserInfo(userInfoVO));
     }
 }

@@ -86,11 +86,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserInfoVO updateUserInfo(UserInfoVO userInfoVO) throws CommonServiceException {
-        NextUserT nextUserT = info2User(userInfoVO);
-        if(userInfoVO!=null && userInfoVO.getUuid()!=null){
+        NextUserT nextUserT = info2user(userInfoVO);
+        if(nextUserT!=null && nextUserT.getUuid()!=null){
             int isSuccess = nextUserTMapper.updateById(nextUserT);
-            if(isSuccess>0){
-                return userInfoVO;
+            if(isSuccess==1){
+                return describeUserInfo(String.valueOf(userInfoVO.getUuid()));
             }else{
                 throw new CommonServiceException(500,"用户信息修改失败");
             }
@@ -114,7 +114,7 @@ public class UserServiceImpl implements UserService {
         return userInfoVO;
     }
 
-    private NextUserT info2User(UserInfoVO userInfoVO){
+    private NextUserT info2user(UserInfoVO userInfoVO){
         NextUserT nextUserT = new NextUserT(){{
             setUserName(userInfoVO.getUsername());
             setNickName(userInfoVO.getNickname());
