@@ -31,7 +31,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
-    public BaseResponseVO exception(ExceptionHandler e){
+    public BaseResponseVO exception(Exception e){
         return BaseResponseVO.systemError();
     }
 }
