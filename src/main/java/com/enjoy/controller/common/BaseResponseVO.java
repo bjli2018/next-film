@@ -57,6 +57,13 @@ public final class BaseResponseVO<M> {
         return baseResponseVO;
     }
 
+    public static<M> BaseResponseVO noLogin(){
+        BaseResponseVO baseResponseVO = new BaseResponseVO();
+        baseResponseVO.setStatus(777);
+        baseResponseVO.setMsg("用户需要登陆");
+        return baseResponseVO;
+    }
+
     public static<M> BaseResponseVO noLogin(String msg,M data){
         BaseResponseVO baseResponseVO = new BaseResponseVO();
         baseResponseVO.setStatus(777);

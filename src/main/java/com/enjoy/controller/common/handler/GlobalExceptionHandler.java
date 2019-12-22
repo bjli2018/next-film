@@ -2,6 +2,7 @@ package com.enjoy.controller.common.handler;
 
 import com.enjoy.controller.common.BaseResponseVO;
 import com.enjoy.controller.exception.NextFilmException;
+import com.enjoy.controller.exception.ParamErrorException;
 import com.enjoy.service.common.exception.CommonServiceException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -25,6 +26,13 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
     public BaseResponseVO commonServiceException(CommonServiceException e){
+        return BaseResponseVO.serviceFailed(e.getCode(),e.getErrMsg());
+    }
+
+    @ExceptionHandler(ParamErrorException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    public BaseResponseVO paramErrorException(ParamErrorException e){
         return BaseResponseVO.serviceFailed(e.getCode(),e.getErrMsg());
     }
 
