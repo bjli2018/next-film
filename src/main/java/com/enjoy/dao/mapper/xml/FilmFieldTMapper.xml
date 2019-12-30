@@ -13,4 +13,44 @@
         <result column="hall_name" property="hallName" />
         <result column="price" property="price" />
     </resultMap>
+
+    <resultMap id="filedListMap" type="com.enjoy.controller.cinema.vo.CinemaFilmVO">
+        <result property="filmId" column="film_id"></result>
+        <result property="filmName" column="film_name"></result>
+        <result property="filmLength" column="film_length"></result>
+        <result property="filmType" column="film_language"></result>
+        <result property="filmCats" column="film_cats"></result>
+        <result property="actors" column="actors"></result>
+        <result property="imgAddress" column="img_address"></result>
+        <collection property="filmFields" ofType="com.enjoy.controller.cinema.vo.FilmFieldVO">
+            <result property="fieldId" column="UUID"></result>
+            <result property="beginTime" column="begin_time"></result>
+            <result property="endTime" column="end_time"></result>
+            <result property="language" column="language"></result>
+            <result property="hallName" column="hall_name"></result>
+            <result property="price" column="price"></result>
+        </collection>
+    </resultMap>
+
+    <select id="describeFieldList" parameterType="java.util.Map" resultMap="filedListMap">
+        SELECT
+            info.`film_id`,
+            info.`film_name`,
+            info.`film_length`,
+            info.`film_language`,
+            info.`film_cats`,
+            info.`actors`,
+            info.`img_address`,
+            fe.`UUID`,
+            fe.`begin_time`,
+            fe.`end_time`,
+            info.`film_language` AS `language`,
+            fe.`hall_name`,
+            fe.`price`
+        FROM
+            film_hall_film_info_t info
+                LEFT JOIN
+            film_field_t fe ON fe.film_id = info.film_id
+        where fe.cinema_id= #{cinameId};
+    </select>
 </mapper>
