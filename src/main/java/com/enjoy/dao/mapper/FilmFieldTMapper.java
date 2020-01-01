@@ -1,6 +1,8 @@
 package com.enjoy.dao.mapper;
 
+import com.enjoy.controller.cinema.vo.CinemaFilmInfoVO;
 import com.enjoy.controller.cinema.vo.CinemaFilmVO;
+import com.enjoy.controller.cinema.vo.FieldHallInfoVO;
 import com.enjoy.dao.entity.FilmFieldT;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
@@ -17,4 +19,8 @@ import java.util.List;
  */
 public interface FilmFieldTMapper extends BaseMapper<FilmFieldT> {
     List<CinemaFilmVO> describeFieldList(@Param("cinameId") String cinameId);
+
+    CinemaFilmInfoVO describeFilmInfo(@Param("fieldId") String fieldId);
+
+    FieldHallInfoVO describeHallInfo(@Param("fieldId") String fieldId);
 }

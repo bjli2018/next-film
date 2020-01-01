@@ -53,4 +53,31 @@
             film_field_t fe ON fe.film_id = info.film_id
         where fe.cinema_id= #{cinameId};
     </select>
+
+    <select id="describeFilmInfo" parameterType="java.util.Map" resultType="com.enjoy.controller.cinema.vo.CinemaFilmInfoVO">
+        SELECT
+        info.`film_id`,
+        info.`film_name`,
+        info.`film_length`,
+        info.`film_language`,
+        info.`film_cats`,
+        info.`actors`,
+        info.`img_address`
+        FROM
+        film_hall_film_info_t info LEFT JOIN film_field_t fe ON fe.film_id = info.film_id
+        where fe.UUID= #{fieldId};
+    </select>
+
+    <select id="describeHallInfo" parameterType="java.util.Map" resultType="com.enjoy.controller.cinema.vo.FieldHallInfoVO">
+        SELECT
+            fe.`UUID` AS hallFieldId,
+            fe.`hall_name` AS hallName,
+            fe.`price` AS price,
+            dict.seat_address AS seatFile
+        FROM
+            film_field_t fe
+                LEFT JOIN
+            film_hall_dict_t dict ON fe.`hall_id` = dict.`UUID`
+        where fe.`UUID`= #{fieldId}
+    </select>
 </mapper>
