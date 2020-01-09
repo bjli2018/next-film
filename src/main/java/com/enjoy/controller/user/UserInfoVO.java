@@ -4,8 +4,10 @@ import com.enjoy.controller.common.BaseVO;
 import com.enjoy.controller.exception.ParamErrorException;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class UserInfoVO extends BaseVO {
+public class UserInfoVO extends BaseVO implements Serializable {
     private Integer id;
     private Integer uuid;
     private String username;

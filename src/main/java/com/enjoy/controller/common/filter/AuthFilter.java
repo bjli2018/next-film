@@ -50,7 +50,8 @@ public class AuthFilter extends OncePerRequestFilter {
                 || request.getServletPath().equals("/swagger-ui.html")
                 || request.getServletPath().startsWith("/swagger-resources")
                 || request.getServletPath().startsWith("/v2/api-docs")
-                || request.getServletPath().startsWith("/webjars/springfox-swagger-ui/")) {
+                || request.getServletPath().startsWith("/webjars/springfox-swagger-ui/")
+                || request.getServletPath().contains("/druid")) {
             chain.doFilter(request, response);
             return;
         }

@@ -59,7 +59,7 @@
         info.`film_id`,
         info.`film_name`,
         info.`film_length`,
-        info.`film_language`,
+        info.`film_language` AS filmType,
         info.`film_cats`,
         info.`actors`,
         info.`img_address`

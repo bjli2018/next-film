@@ -5,8 +5,10 @@ import com.enjoy.controller.common.BaseVO;
 import com.enjoy.controller.exception.ParamErrorException;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class EnrollUserVO extends BaseVO {
+public class EnrollUserVO extends BaseVO implements Serializable {
     private String username;
     private String password;
     private String email;
