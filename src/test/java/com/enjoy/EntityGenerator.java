@@ -20,7 +20,7 @@ import java.util.Map;
 public class EntityGenerator {
 
     // 生成输出目录，定位到工程的java目录下
-    private String outputDir = "D:\\456\\next-film\\src\\main\\java";
+    private String outputDir = "D:\\workspace\\next-film\\src\\main\\java";
     // 生成类的作者
     private String author = "bob";
     // 数据源相关配置
@@ -35,7 +35,7 @@ public class EntityGenerator {
 
     static{
         tableNames = new String[]{
-                "film_brand_dict_t","film_area_dict_t","film_hall_dict_t","film_cinema_t","film_field_t","film_hall_film_info_t"
+                "film_order_t"
         };
     }
 
