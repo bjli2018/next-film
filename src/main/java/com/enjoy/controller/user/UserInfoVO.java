@@ -23,10 +23,6 @@ public class UserInfoVO extends BaseVO implements Serializable {
     private Long beginTime;
     private Long updateTime;
 
-    public Integer getUuid(){
-        return this.getId();
-    }
-
     @Override
     public void checkParam() throws ParamErrorException {
         //加入验证逻辑

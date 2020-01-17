@@ -101,6 +101,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>next-film</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
