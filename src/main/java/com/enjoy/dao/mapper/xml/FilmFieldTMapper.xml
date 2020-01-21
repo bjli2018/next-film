@@ -56,15 +56,15 @@
 
     <select id="describeFilmInfo" parameterType="java.util.Map" resultType="com.enjoy.controller.cinema.vo.CinemaFilmInfoVO">
         SELECT
-        info.`film_id`,
-        info.`film_name`,
-        info.`film_length`,
-        info.`film_language` AS filmType,
-        info.`film_cats`,
-        info.`actors`,
-        info.`img_address`
+            info.`film_id`,
+            info.`film_name`,
+            info.`film_length`,
+            info.`film_language` AS filmType,
+            info.`film_cats`,
+            info.`actors`,
+            info.`img_address`
         FROM
-        film_hall_film_info_t info LEFT JOIN film_field_t fe ON fe.film_id = info.film_id
+            film_hall_film_info_t info LEFT JOIN film_field_t fe ON fe.film_id = info.film_id
         where fe.UUID= #{fieldId};
     </select>
 
